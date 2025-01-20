@@ -1,9 +1,11 @@
-import ExcelParser from "./components/ExcelParser";
+import ExcelParser from "./components/excel/ExcelParser";
+import ExcelUploader from "./components/excel/ExcelUploader";
 
 const App = () => {
   return (
     <div className="App">
-      <ExcelParser />
+      {/* <ExcelParser /> */}
+      <ExcelUploader />
     </div>
   );
 };
