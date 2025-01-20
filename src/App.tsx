@@ -1,5 +1,6 @@
 import ExcelParser from "./components/excel/ExcelParser";
 import ExcelUploader from "./components/excel/ExcelUploader";
+import "./main.css";
 
 const App = () => {
   return (

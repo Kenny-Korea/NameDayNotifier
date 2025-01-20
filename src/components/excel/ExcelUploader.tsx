@@ -34,6 +34,7 @@ const ExcelParser = () => {
         setSubmittable(true);
         console.log(rawData);
       } else {
+        error || setSubmittable(false);
         if (rawData.length === 0) {
           setError("Cannot read data from uploaded file.");
         } else {
@@ -45,13 +46,21 @@ const ExcelParser = () => {
 
   const validateExcelFile = () => {};
 
+  const handleDataSubmit = () => {
+    alert("succeeded to upload data");
+  };
+
   return (
-    <>
+    <div className="bg-red-200">
       <input type="file" ref={inputRef} onChange={handleInputChange} />
-      {submittable && <button type="submit">Submit</button>}
+      {submittable && (
+        <button type="submit" onClick={handleDataSubmit} className="bg-slate-900">
+          Submit
+        </button>
+      )}
       {error && <p>{error}</p>}
       <br />
-    </>
+    </div>
   );
 };
 
