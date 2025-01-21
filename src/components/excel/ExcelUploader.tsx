@@ -13,40 +13,43 @@ const ExcelParser = () => {
     if (!inputRef.current) return;
 
     const files = inputRef.current.files;
-    if (files && files.length > 1) return setError("Cannot upload multiple files");
-    if (files) {
-      const rawFile = files[0];
+    if (!files?.length) return;
+    if (files.length > 1) return setError("Cannot upload multiple files");
+
+    const rawFile = files[0];
+    if (!rawFile.name.match(/\.(xlsx|xls|csv)$/)) {
+      return setError("Please upload only Excel or CSV files (.xlsx, .xls or .csv)");
+    }
+
+    try {
       const file = await rawFile.arrayBuffer();
       const workbook = XLSX.read(file);
       const worksheet = workbook.Sheets[workbook.SheetNames[0]];
 
       const rawData: Array<Array<string>> = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
       const headers = rawData[0];
-      console.log(headers);
+
+      if (!headers || rawData.length === 0) {
+        setSubmittable(false);
+        return setError("Cannot read data from uploaded file.");
+      }
 
       const hasAllRequiredColumns = requiredColumns.every((value, index) => value === headers[index]);
-      console.log(hasAllRequiredColumns);
 
       if (hasAllRequiredColumns) {
-        if (error) {
-          setError("");
-        }
+        setError("");
         setSubmittable(true);
-        console.log(rawData);
       } else {
-        error || setSubmittable(false);
-        if (rawData.length === 0) {
-          setError("Cannot read data from uploaded file.");
-        } else {
-          setError("Invalid data format.");
-        }
+        setSubmittable(false);
+        setError("Invalid data format.");
       }
+    } catch (err) {
+      setSubmittable(false);
+      setError("Error processing file.");
     }
   };
 
-  const validateExcelFile = () => {};
-
-  const handleDataSubmit = () => {
+  const handleSubmitData = () => {
     alert("succeeded to upload data");
   };
 
@@ -54,7 +57,7 @@ const ExcelParser = () => {
     <div className="bg-red-200">
       <input type="file" ref={inputRef} onChange={handleInputChange} />
       {submittable && (
-        <button type="submit" onClick={handleDataSubmit} className="bg-slate-900">
+        <button type="submit" onClick={handleSubmitData} className="bg-red-300 border-none">
           Submit
         </button>
       )}
