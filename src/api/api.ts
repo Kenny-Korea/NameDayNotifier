@@ -1,5 +1,6 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, ScanCommand, QueryCommand } from "@aws-sdk/lib-dynamodb";
+import { Data } from "../types/model";
 
 const client = new DynamoDBClient({
   region: "ap-northeast-2",
@@ -13,7 +14,7 @@ const docClient = DynamoDBDocumentClient.from(client);
 const TABLE_NAME = "NameDayNotificator";
 
 // 전체 데이터 가져오기
-export const getAllNameDayData = async () => {
+export const getAllNameDayData = async (): Promise<Data[]> => {
   try {
     const command = new ScanCommand({
       TableName: TABLE_NAME,
@@ -21,7 +22,7 @@ export const getAllNameDayData = async () => {
 
     const response = await docClient.send(command);
     console.log("FETCHED DATA");
-    return response.Items;
+    return response.Items as Data[];
   } catch (error) {
     console.error("DynamoDB 데이터 조회 오류:", error);
     throw new Error("데이터 조회 중 오류가 발생했습니다.");

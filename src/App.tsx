@@ -1,6 +1,7 @@
 import ExcelParser from "./components/excel/ExcelParser";
 import ExcelUploader from "./components/excel/ExcelUploader";
-import Table from "./components/Table";
+import NameDay from "./components/NameDay";
+import SpreadSheet from "./components/SpreadSheet";
 import "./main.css";
 
 const App = () => {
@@ -9,7 +10,8 @@ const App = () => {
       <ExcelParser />
       {/* <ExcelUploader /> */}
       <br />
-      <Table />
+      {/* <NameDay /> */}
+      <SpreadSheet />
     </div>
   );
 };

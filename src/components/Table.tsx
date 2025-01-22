@@ -1,18 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
-import { getAllNameDayData } from "../api/api";
+import { Data } from "../types/model";
 
-const Table = () => {
-  const query = useQuery({
-    queryKey: ["nameDayData"],
-    queryFn: getAllNameDayData,
-    staleTime: Infinity,
-  });
-
+const Table = (props: { nameDayData: Data[] }) => {
+  const { nameDayData } = props;
   return (
     <div>
-      {query.data?.map((item) => (
-        <div key={item.id}>{item.Name}</div>
+      {nameDayData.map((data) => (
+        <p key={data.id}>{data.Name}</p>
       ))}
     </div>
   );
