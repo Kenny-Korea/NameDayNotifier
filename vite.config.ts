@@ -4,14 +4,15 @@ import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
   server: {},
+  base: "./",
   plugins: [
     react(),
     VitePWA({
       includeAssets: ["favicon.svg", "robots.txt", "apple-touch-icon.png"], // 포함할 파일들
       manifest: {
-        name: "NameDay Notificator",
+        name: "Name Day Notificator",
         short_name: "ReactApp",
-        description: "A Name day notificator for SGG Catholic Youth executive members",
+        description: "A name day notificator for SGG Catholic Youth executive members",
         theme_color: "#ffffff",
         background_color: "#ffffff",
         display: "standalone",

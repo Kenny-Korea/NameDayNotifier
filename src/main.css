@@ -10,3 +10,9 @@
     font-style: normal;
   }
 }
+
+@layer components {
+  .layout-card {
+    @apply rounded-lg p-4 shadow-md hover:shadow-lg;
+  }
+}
