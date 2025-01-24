@@ -76,7 +76,11 @@ const NameDay = () => {
     console.log(result);
     setNameDayData(result);
     console.log(result?.values());
-
+    if (result) {
+      Array.from(result.values()).map((nameDay) => {
+        console.log(nameDay);
+      });
+    }
     return result;
   };
 

@@ -4,8 +4,15 @@ export default {
   theme: {
     // colors: {},
     fontFamily: {
-      // sans: ['Graphik', 'sans-serif'],
+      sans: ["Pretendard-Regular", "sans-serif"], // 기본 폰트로 설정
       // serif: ['Merriweather', 'serif'],
+    },
+    fontSize: {
+      sm: "14px",
+      base: "10px",
+      lg: "18px",
+      xl: "20px",
+      "2xl": "24px",
     },
     extend: {
       spacing: {
