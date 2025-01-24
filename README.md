@@ -1,3 +1,3 @@
-# Name Day Notificator
+# Name Day Notifier
 
-A Name Day Notificator for SGG Catholic Youth
+A Name Day Notifier for SGG Catholic Youth

@@ -10,9 +10,9 @@ export default defineConfig({
     VitePWA({
       includeAssets: ["favicon.svg", "robots.txt", "apple-touch-icon.png"], // 포함할 파일들
       manifest: {
-        name: "Name Day Notificator",
+        name: "Name Day Notifier",
         short_name: "ReactApp",
-        description: "A name day notificator for SGG Catholic Youth executive members",
+        description: "A name day notifier for SGG Catholic Youth executive members",
         theme_color: "#ffffff",
         background_color: "#ffffff",
         display: "standalone",
