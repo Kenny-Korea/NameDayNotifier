@@ -19,6 +19,7 @@ const App = () => {
       {/* <ExcelUploader /> */}
       {/* <NameDay /> */}
       {/* <SpreadSheet /> */}
+      <p>hello world</p>
       <Today />
       <CardLayout />
     </div>
