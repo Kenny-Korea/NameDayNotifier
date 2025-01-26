@@ -27,5 +27,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.NAMEDAYNOTIFIER_TOKEN }} # personal_token 대신 GITHUB_TOKEN 사용
+          personal_token: ${{ secrets.NAMEDAYNOTIFIER_TOKEN }} # personal_token 대신 GITHUB_TOKEN 사용
           publish_dir: ./dist
