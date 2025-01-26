@@ -3,10 +3,10 @@ import { LayoutType } from "../../types/types";
 const LayoutButton = (props: {
   children: React.ReactNode;
   type: LayoutType;
-  layout: LayoutType;
+  cardLayout: LayoutType;
   onClick: (type: LayoutType) => void;
 }) => {
-  const { children, type, layout, onClick } = props;
+  const { children, type, cardLayout: layout, onClick } = props;
   const selected = type === layout;
 
   return (

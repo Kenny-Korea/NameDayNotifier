@@ -1,4 +1,4 @@
-import { useCallback, useState, useRef } from "react";
+import { useCallback, useState, useRef, memo } from "react";
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
@@ -16,10 +16,13 @@ const SearchBar = () => {
   }, []);
 
   return (
-    <div className="SearchBar">
-      <input type="text" placeholder="Search" onChange={handleTypeText} />
-    </div>
+    <input
+      type="text"
+      placeholder="Search"
+      className="w-full h-10 p-1 pl-2 text-sm outline-none border-gray-300 rounded-md border"
+      onChange={handleTypeText}
+    />
   );
 };
 
-export default SearchBar;
+export default memo(SearchBar);

@@ -2,7 +2,7 @@ import pigeon from "/pigeon.png";
 
 const Today = () => {
   return (
-    <div className="w-full flex items-center gap-4 layout-card bg-blue-50">
+    <div className="w-full h-60 flex items-center gap-4 layout-card bg-blue-50">
       <div className="flex flex-col items-center justify-center">
         <img src={pigeon} alt="pigeon" className="w-fit" />
         <p className="text-[0.6rem]">오늘의 축일자</p>

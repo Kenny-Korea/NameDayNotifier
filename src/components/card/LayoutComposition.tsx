@@ -1,12 +1,12 @@
 import { LayoutType } from "../../types/types";
 import LayoutButton from "./LayoutButton";
 
-const LayoutComposition = (props: { layout: LayoutType; toggleLayout: (type: LayoutType) => void }) => {
-  const { layout, toggleLayout } = props;
+const LayoutComposition = (props: { cardLayout: LayoutType; toggleLayout: (type: LayoutType) => void }) => {
+  const { cardLayout: cardLayout, toggleLayout } = props;
 
   return (
     <div className="w-fit flex items-center justify-center gap-1 shadow-md rounded-lg p-1">
-      <LayoutButton type="single" layout={layout} onClick={toggleLayout}>
+      <LayoutButton type="single" cardLayout={cardLayout} onClick={toggleLayout}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -23,7 +23,7 @@ const LayoutComposition = (props: { layout: LayoutType; toggleLayout: (type: Lay
         </svg>
       </LayoutButton>
 
-      <LayoutButton type="grid" layout={layout} onClick={toggleLayout}>
+      <LayoutButton type="grid" cardLayout={cardLayout} onClick={toggleLayout}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

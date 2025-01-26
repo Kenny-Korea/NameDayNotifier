@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "homepage": "https://kenny-korea.github.io/NameDayNotifier/",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.731.1",
     "@aws-sdk/lib-dynamodb": "^3.731.1",
