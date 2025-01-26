@@ -9,8 +9,6 @@ import Table from "./components/Table";
 import Today from "./components/Today";
 import "./main.css";
 
-const test = "test";
-
 const App = () => {
   return (
     // <div className="w-screen h-screen p-4 flex flex-col items-center bg-gradient-to-b from-gray-50 via-gray-50/95 to-gray-50/90">
