@@ -31,4 +31,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.NAMEDAYNOTIFIER_TOKEN }} # personal_token 대신 GITHUB_TOKEN 사용
+          publish_branch: gh-pages
           publish_dir: ./dist
