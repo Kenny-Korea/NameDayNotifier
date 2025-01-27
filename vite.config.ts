@@ -4,7 +4,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
   server: {},
-  // base: "/NameDayNotifier/",
+  base: "/NameDayNotifier/",
   plugins: [
     react(),
     VitePWA({
