@@ -18,17 +18,17 @@ export default defineConfig({
         display: "standalone",
         icons: [
           {
-            src: "/agape-192.png",
+            src: "./agape-192.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "/agape-512.png",
+            src: "./agape-512.png",
             sizes: "512x512",
             type: "image/png",
           },
           {
-            src: "/agape-512.png",
+            src: "./agape-512.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "any maskable",
