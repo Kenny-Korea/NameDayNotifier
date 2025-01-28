@@ -1,6 +1,10 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, ScanCommand, QueryCommand } from "@aws-sdk/lib-dynamodb";
-import { Data } from "../types/model";
+import { DataType } from "../types/model";
+import { dummyData } from "../data";
+import { util } from "../components/util/util.date";
+import { parseNameDayData } from "../components/util/util.data";
+import { setLocalStorageItem } from "../components/util/util.localStorage";
 
 const client = new DynamoDBClient({
   region: "ap-northeast-2",
@@ -13,21 +17,37 @@ const client = new DynamoDBClient({
 const docClient = DynamoDBDocumentClient.from(client);
 const TABLE_NAME = "NameDayNotificator";
 
-// 전체 데이터 가져오기
-export const getAllNameDayData = async (): Promise<Data[]> => {
-  try {
-    const command = new ScanCommand({
-      TableName: TABLE_NAME,
-    });
-
-    const response = await docClient.send(command);
-    console.log("FETCHED DATA");
-    return response.Items as Data[];
-  } catch (error) {
-    console.error("DynamoDB 데이터 조회 오류:", error);
-    throw new Error("데이터 조회 중 오류가 발생했습니다.");
+export const getAllNameDayData = async (): Promise<Map<number, Map<number, DataType[]>> | null> => {
+  const data = await getLambdaData();
+  if (data) {
+    const parsedData = parseNameDayData(data);
+    console.log(parsedData);
+    setLocalStorageItem("nameDayData", parsedData);
+    return parsedData;
   }
+  return null;
 };
+
+export const getLambdaData = async () => {
+  const url = import.meta.env.VITE_API_GATEWAY_URL;
+  const response = await fetch(url + "/nameday");
+  return response.json();
+};
+
+// 전체 데이터 가져오기
+// export const parseNameDayData = async (): Promise<Map<number, Map<number, DataType[]>>> => {
+// try {
+//   const command = new ScanCommand({
+//     TableName: TABLE_NAME,
+//   });
+//   const response = await docClient.send(command);
+//   console.log("FETCHED DATA");
+//   return response.Items as DataType[];
+// } catch (error) {
+//   console.error("DynamoDB 데이터 조회 오류:", error);
+//   throw new Error("데이터 조회 중 오류가 발생했습니다.");
+// }
+// };
 
 // 특정 카테고리의 데이터만 가져오기
 export const getNameDayDataByCategory = async (catName: string) => {

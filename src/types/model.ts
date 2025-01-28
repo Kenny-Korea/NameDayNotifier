@@ -1,6 +1,6 @@
-export interface Data {
-  id: string;
-  Name: string;
-  CatName: string;
-  Date: any;
+export interface DataType {
+  name: string;
+  catname: string;
+  description: string;
+  date: string;
 }

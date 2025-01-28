@@ -1,7 +1,7 @@
 import { LayoutType } from "../../types/types";
 import LayoutButton from "./LayoutButton";
 
-const LayoutComposition = (props: { cardLayout: LayoutType; toggleLayout: (type: LayoutType) => void }) => {
+const ButtonWrapper = (props: { cardLayout: LayoutType; toggleLayout: (type: LayoutType) => void }) => {
   const { cardLayout: cardLayout, toggleLayout } = props;
 
   return (
@@ -43,4 +43,4 @@ const LayoutComposition = (props: { cardLayout: LayoutType; toggleLayout: (type:
   );
 };
 
-export default LayoutComposition;
+export default ButtonWrapper;
