@@ -19,6 +19,7 @@ const TABLE_NAME = "NameDayNotificator";
 
 export const getAllNameDayData = async (): Promise<Map<number, Map<number, DataType[]>> | null> => {
   const data = await getLambdaData();
+  console.log("data", data);
   if (data) {
     const parsedData = parseNameDayData(data);
     console.log(parsedData);
