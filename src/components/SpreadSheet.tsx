@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import dayjs from "dayjs";
+import { getLambdaData } from "../api/api";
 
 type NameDay = {
   name: string;
