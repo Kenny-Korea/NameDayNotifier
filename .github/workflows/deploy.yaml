@@ -64,3 +64,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./dist
+          force_orphan: true # 이전 배포 기록을 깨끗이 정리

@@ -8,6 +8,12 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      registerType: "autoUpdate", // 자동 업데이트 설정
+      workbox: {
+        clientsClaim: true,
+        skipWaiting: true,
+        cleanupOutdatedCaches: true,
+      },
       includeAssets: ["favicon.svg", "robots.txt", "apple-touch-icon.png"], // 포함할 파일들
       manifest: {
         name: "Name Day Notifier",
