@@ -21,7 +21,7 @@ const Card = (props: CardProps) => {
         <p>{month + "월"}</p>
         {sortedData.length > 0 ? (
           sortedData.map(([day, dataArray]) => (
-            <div key={day} className="border-b pb-2 mb-2 last:border-b-0 last:mb-0">
+            <div key={day} className="border-b pb-2 mb-2 last:border-b-0 last:mb-0 last:pb-0">
               <p className="font-medium text-gray-600">
                 {month}월 {day}일
               </p>

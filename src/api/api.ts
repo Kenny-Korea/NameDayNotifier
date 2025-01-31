@@ -16,6 +16,7 @@ const docClient = DynamoDBDocumentClient.from(client);
 const TABLE_NAME = "NameDayNotificator";
 
 export const getAllNameDayData = async (): Promise<Map<number, Map<number, DataType[]>> | null> => {
+  console.log("getAllNameDayData");
   const data = await getLambdaData();
   console.log("data", data);
   if (data) {

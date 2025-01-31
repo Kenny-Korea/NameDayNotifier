@@ -8,12 +8,15 @@ import { getAllNameDayData } from "./api/api";
 import { getLocalStorageItems } from "./components/util/util.localStorage";
 
 const App = () => {
-  useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["nameDayData"],
     initialData: getLocalStorageItems("nameDayData"),
     queryFn: getAllNameDayData,
-    staleTime: Infinity,
+    staleTime: 0,
   });
+  console.log("data", data);
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <Layout>

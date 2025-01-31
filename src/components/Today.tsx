@@ -4,11 +4,11 @@ import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { DataType } from "../types/model";
 
-const currentMonth = 1;
-const currentDay = 28;
+// const currentMonth = 1;
+// const currentDay = 28;
 const currentDate = dayjs();
-// const currentMonth = currentDate.month() + 1;
-// const currentDay = currentDate.date();
+const currentMonth = currentDate.month() + 1;
+const currentDay = currentDate.date();
 
 const Today = () => {
   const queryClient = useQueryClient();
@@ -30,7 +30,7 @@ const Today = () => {
         <p className="text-[0.6rem]">오늘의 축일자</p>
       </div>
       <div className="flex flex-col justify-center">
-        {Array.isArray(todayList) && todayList.length < 1 ? (
+        {!todayList || (Array.isArray(todayList) && todayList.length < 1) ? (
           <p>오늘은 축일자가 없습니다.</p>
         ) : (
           todayList?.map((data) => <p key={data.name}>{data.name}</p>)
