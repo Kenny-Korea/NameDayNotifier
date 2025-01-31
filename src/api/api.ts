@@ -1,8 +1,6 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, ScanCommand, QueryCommand } from "@aws-sdk/lib-dynamodb";
 import { DataType } from "../types/model";
-import { dummyData } from "../data";
-import { util } from "../components/util/util.date";
 import { parseNameDayData } from "../components/util/util.data";
 import { setLocalStorageItem } from "../components/util/util.localStorage";
 
