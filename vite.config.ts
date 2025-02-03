@@ -41,6 +41,15 @@ export default defineConfig({
           },
         ],
       },
+      // 서비스 워커 설정
+      strategies: "injectManifest",
+      srcDir: "src/sw",
+      filename: "sw.ts",
+      injectRegister: false,
+      devOptions: {
+        enabled: true,
+        type: "module",
+      },
     }),
   ],
 });
