@@ -1,6 +1,6 @@
-import webpush from "web-push";
+// import webpush from "web-push";
 
-export const vapidKeys = webpush.generateVAPIDKeys();
+// export const vapidKeys = webpush.generateVAPIDKeys();
 
-console.log("Public Key:", vapidKeys.publicKey);
-console.log("Private Key:", vapidKeys.privateKey);
+// console.log("Public Key:", vapidKeys.publicKey);
+// console.log("Private Key:", vapidKeys.privateKey);
