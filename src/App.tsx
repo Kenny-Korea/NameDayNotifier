@@ -17,9 +17,6 @@ const App = () => {
     queryFn: getAllNameDayData,
     staleTime: 0,
   });
-  console.log("data", data);
-
-  if (isLoading) return <div>Loading...</div>;
 
   // useEffect(() => {
   //   const init = async () => {
