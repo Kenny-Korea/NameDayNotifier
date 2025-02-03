@@ -1,4 +1,4 @@
-import {} from "../notification/subscription";
+import { subscribePushNotification } from "../notification/subscription";
 
 const Test = () => {
   const handleClick = async () => {
@@ -7,10 +7,10 @@ const Test = () => {
       const registration = await navigator.serviceWorker.ready;
       const subscription = await registration.pushManager.getSubscription();
 
-      // if (!subscription) {
-      //   // 구독되지 않은 경우 구독 진행
-      //   await subscribePushNotification();
-      // }
+      if (!subscription) {
+        // 구독되지 않은 경우 구독 진행
+        await subscribePushNotification();
+      }
 
       // Lambda 함수 호출
       const response = await fetch(`${import.meta.env.VITE_API_GATEWAY_URL}/notification`);
