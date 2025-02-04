@@ -17,7 +17,7 @@ export default defineConfig({
       includeAssets: ["favicon.svg", "robots.txt", "apple-touch-icon.png"], // 포함할 파일들
       manifest: {
         name: "Name Day Notifier",
-        short_name: "영명축일",
+        short_name: "청년회 영명축일",
         description: "A name day notifier for SGG Catholic Youth executive members",
         theme_color: "#ffffff",
         background_color: "#ffffff",

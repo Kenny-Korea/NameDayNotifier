@@ -13,8 +13,8 @@ export async function subscribePushNotification() {
 
     // 서비스 워커 등록 확인
     const registration = await navigator.serviceWorker.ready;
-    registration.showNotification("푸시 알람이 구독이 완료되었습니다.", {
-      body: "푸시 알람이 구독이 완료되었습니다.",
+    registration.showNotification("푸시 알림 구독이 완료되었습니다.", {
+      body: "푸시 알람 구독이 완료되었습니다.",
       icon: "./agape-32.png",
     });
 
@@ -25,18 +25,21 @@ export async function subscribePushNotification() {
       // 새로운 구독 생성
       subscription = await registration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: import.meta.env.VITE_VAPID_PUBLIC_KEY,
+        applicationServerKey: import.meta.env.VITE_PUBLIC_VAPID_KEY,
       });
     }
+    console.log(subscription);
 
     // 구독 정보를 서버로 전송
-    await fetch(`${import.meta.env.VITE_API_GATEWAY_URL}/subscribe`, {
-      method: "GET",
+    const response = await fetch(`${import.meta.env.VITE_API_GATEWAY_URL}/subscription`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ subscription }),
+      body: JSON.stringify(subscription),
     });
+
+    console.log(response);
 
     return true;
   } catch (error) {
