@@ -35,7 +35,34 @@ const pushHandler = (event: PushEvent) => {
 
 const clickHandler = (event: NotificationEvent) => {
   event.notification.close();
-  event.waitUntil(clients.openWindow(event.notification.data?.url || "/"));
+
+  event.waitUntil(
+    (async () => {
+      // PWA가 설치되어 있는지 확인
+      const windowClients = await clients.matchAll({
+        type: "window",
+        includeUncontrolled: true,
+      });
+
+      // PWA 클라이언트 찾기
+      const pwaClient = windowClients.find(
+        (client) => (client.url.includes(self.registration.scope) && "standalone" in client) || "isInstalled" in client
+      );
+
+      // PWA가 이미 열려있다면 포커스
+      if (pwaClient) {
+        return pwaClient.focus();
+      }
+
+      // PWA가 설치되어 있지만 닫혀있다면 새로 열기
+      if (window.matchMedia("(display-mode: standalone)").matches) {
+        return clients.openWindow(self.registration.scope);
+      }
+
+      // PWA가 설치되어 있지 않다면 설치 페이지나 기본 URL로 이동
+      return clients.openWindow(event.notification.data?.url || self.registration.scope);
+    })()
+  );
 };
 
 self.removeEventListener("push", pushHandler);
