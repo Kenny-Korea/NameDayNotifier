@@ -6,7 +6,7 @@ export const parseNameDayData = (data: string[][]): Map<number, Map<number, Data
 
   // 헤더 제외하고 실제 데이터만 처리
   data.slice(2).forEach((row) => {
-    const [_, name, catname, date, description] = row;
+    const [_, name, catname, gender, date, description] = row;
     const [month, day] = date.split("/").map(Number); // "MM/DD" 형식에서 월과 일 추출
 
     // 해당 월이 없으면 새로운 Map 생성
@@ -24,6 +24,7 @@ export const parseNameDayData = (data: string[][]): Map<number, Map<number, Data
     monthMap.get(day)!.push({
       name,
       date,
+      gender,
       catname,
       description,
     });

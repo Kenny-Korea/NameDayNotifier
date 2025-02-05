@@ -60,7 +60,7 @@ const clickHandler = (event: NotificationEvent) => {
       }
 
       // PWA가 설치되어 있지 않다면 설치 페이지나 기본 URL로 이동
-      return clients.openWindow(event.notification.data?.url || self.registration.scope);
+      return clients.openWindow(event.notification.data?.url + "/NameDayNotifier/" || self.registration.scope);
     })()
   );
 };
