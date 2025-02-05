@@ -30,6 +30,7 @@ const pushHandler = (event: PushEvent) => {
     vibrate: [200, 100, 200],
   };
 
+  // waitUntil 메서드는 비동기 작업을 수행하는 동안 브라우저가 페이지를 닫지 않도록(service worker가 종료되지 않도록) 보장하는 역할을 수행
   event.waitUntil(self.registration.showNotification(options.title, notificationOptions));
 };
 

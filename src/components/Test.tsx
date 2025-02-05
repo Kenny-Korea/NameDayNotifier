@@ -1,4 +1,4 @@
-import { subscribePushNotification } from "../notification/subscription";
+import { subscribePushNotification } from "../subscription/subscription";
 
 const Test = () => {
   const handleClick = async () => {

@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllNameDayData } from "./api/api";
 import { getLocalStorageItems } from "./util/util.localStorage";
 import { useEffect } from "react";
-import { subscribePushNotification } from "./notification/subscription";
+import { subscribePushNotification } from "./subscription/subscription";
 import Test from "./components/Test";
 
 const App = () => {
