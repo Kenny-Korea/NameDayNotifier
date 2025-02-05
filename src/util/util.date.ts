@@ -23,7 +23,7 @@ export class DateUtil {
     const monthDayMap = new Map<number, Map<number, DataType[]>>();
 
     filteredData.forEach((row) => {
-      const [_, name, catname, date, description] = row;
+      const [_, name, catname, gender, date, description] = row;
 
       // 날짜에서 월 추출 (ex. "12/26" or "12-26" -> 12)
       // const month = parseInt(dateStr.replace(/-/g, "/").split("/")[0]);
@@ -31,7 +31,7 @@ export class DateUtil {
       const month = parseInt(monthStr);
       const day = parseInt(dayStr);
 
-      const nameDay: DataType = { name, catname, description, date };
+      const nameDay: DataType = { name, catname, gender, description, date };
 
       // 월 Map이 없으면 생성
       if (!monthDayMap.has(month)) {
